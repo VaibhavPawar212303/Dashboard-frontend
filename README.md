@@ -62,8 +62,3 @@ In this project we have also used the ES6 version for that we have to put or the
   Creating the api 
    API url is always same just the end point will change.
    
-   # Axios 
-   
-  Axios is one of the most popular Javascript libraries one can use to make HTTP requests. 
-     axios.create
-     Axios.create is a handy feature within Axios used to create a new instance with a custom configuration. With Axios.create, we can generate a client      for any API and reuse the configuration for any calls using the same client, as we will see in the

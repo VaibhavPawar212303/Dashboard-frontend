@@ -1,14 +1,10 @@
-import React from "react";
-
+import { React, useState } from "react";
+import HTMLReactParser from "html-react-parser";
+import Navbar from "../Navbar/Navbar";
 function Singlepost() {
-  const [header, setHeader] = React.useState("");
-  const [paragraph, setParagraph] = React.useState("");
+  const [content, setContent] = useState("");
 
-  function paragraphcomponent({ props }) {
-    return <p>{props}</p>;
-  }
-
-  fetch("http://localhost:5000/api/singlepost", {
+  fetch("https://dappled-blog-api.onrender.com/api/singlepost", {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
@@ -17,21 +13,29 @@ function Singlepost() {
   })
     .then((response) => response.json())
     .then((response) => {
-      const data = response.articals.blocks;
-      for (let index = 0; index < data.length; index++) {
-        const element = data[index].type;
-        if (element === "header") {
-          setHeader(data[index].data.text);
-        } else if (element === "paragraph") {
-          paragraphcomponent(data[index].data.text);
-        }
-      }
+      setContent(response.Artical.Artical);
     });
 
   return (
     <div>
-      <h1>{header}</h1>
-      <p>{paragraph}</p>
+      <Navbar />
+      <main role="main" class="container">
+        <div class="row mt-5">
+          <div class="col-md-8 blog-main">
+            <div class="blog-post">{HTMLReactParser(content)}</div>
+          </div>
+          <aside class="col-md-4 blog-sidebar">
+            <div class="p-3 mb-3 bg-light rounded">
+              <h4 class="">About</h4>
+              <p class="mb-0">
+                Vaibhav Pawar <br />
+                QA Enginner Working In Cypress Automation at TestRig
+                Technologies
+              </p>
+            </div>
+          </aside>
+        </div>
+      </main>
     </div>
   );
 }
