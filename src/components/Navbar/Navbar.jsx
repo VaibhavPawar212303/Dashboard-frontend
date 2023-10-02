@@ -4,7 +4,7 @@ function Navbar() {
   return (
     <div>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand ml-1" href="#">
+        <a class="navbar-brand ml-1" href="/">
           DAPPLED
         </a>
         <button
@@ -22,7 +22,7 @@ function Navbar() {
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="/">
                 Home <span class="sr-only">(current)</span>
               </a>
             </li>
@@ -34,7 +34,7 @@ function Navbar() {
               placeholder="Search"
               aria-label="Search"
             />
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+            <button class="btn btn-outline-success my-2 my-sm-0 mr-3" type="submit">
               Search
             </button>
           </form>
