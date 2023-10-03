@@ -4,7 +4,7 @@ export default function Latestblog() {
   const [content, setContent] = useState([]);
 
   const getArtical = () => {
-    fetch("http://localhost:5000/api/getAllBlogs", {
+    fetch("https://dappled-blog-api.onrender.com/api/getAllBlogs", {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",

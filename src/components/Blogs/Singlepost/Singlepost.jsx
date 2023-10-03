@@ -12,7 +12,7 @@ function Singlepost() {
   async function getUserData() {
     try {
       await axios
-        .get(`http://localhost:5000/api/singlepost/${blogid}`)
+        .get(`https://dappled-blog-api.onrender.com/api/singlepost/${blogid}`)
         .then((response) => {
           setContent(response.data.blogdata);
           setBlogdata(response.data.blogdata.blogData);
