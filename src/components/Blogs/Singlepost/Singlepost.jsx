@@ -8,10 +8,11 @@ import HTMLReactParser from "html-react-parser";
 function Singlepost() {
   const [content, setContent] = useState("");
   const [blog, setBlogdata] = useState("");
+  const blogid = localStorage.getItem("BlogId");
   async function getUserData() {
     try {
       await axios
-        .get("https://dappled-blog-api.onrender.com/api/singlepost/test01")
+        .get(`http://localhost:5000/api/singlepost/${blogid}`)
         .then((response) => {
           setContent(response.data.blogdata);
           setBlogdata(response.data.blogdata.blogData);
