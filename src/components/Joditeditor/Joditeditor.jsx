@@ -7,7 +7,7 @@ const Joditeditor = () => {
   const passDataToDb = () => {
     setIntro(intro);
     setTitle(title);
-    fetch("http://localhost:5000/api/createBlog", {
+    fetch("https://dappled-blog-api.onrender.com/api/createBlog", {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
