@@ -4,7 +4,7 @@ export default function Latestblog() {
   const [content, setContent] = useState([]);
 
   const getArtical = () => {
-    fetch("https://dappled-blog-api.onrender.com/api/getAllBlogs", {
+    fetch("http://localhost:5000/api/getAllBlogs", {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
@@ -32,7 +32,9 @@ export default function Latestblog() {
             <div class="card mb-5" key={element.BlogID}>
               <div class="card-body">
                 <h5 class="card-title">{element.title}</h5>
-                <p class="card-text text-left">{element.introduction}</p>
+                <p class="card-text text-left">
+                  {element.introduction.substr(0, 150)}...
+                </p>
                 <button
                   class="btn btn-primary"
                   onClick={() => setBlogId(element.BlogID)}
