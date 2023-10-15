@@ -9,6 +9,7 @@ function Home() {
     <div>
       <Navbar />
       <Intro />
+      <h1 className="mb-5">Our Latest Blog</h1>
       <Latestblog />
       {/* <Footer /> */}
     </div>

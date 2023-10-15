@@ -4,14 +4,37 @@ import Home from "./components/Home/Home";
 // import Editor from "./components/Editor/Editor";
 import Singlepost from "./components/Blogs/Singlepost/Singlepost";
 import Joditeditor from "./components/Joditeditor/Joditeditor";
+import Register from "./components/Authentication/Register/Register";
+import Login from "./components/Authentication/Login/Login";
+import Layout from "./components/Layout/Layout";
+import PrivateRoute from "./components/Protected/PrivateRoute";
+import Latestblog from "./components/Blogs/Latestblog/Latestblog";
+import Projects from "./components/Projects/Projects";
+import CreateProject from "./components/Projects/CreateProject";
+import Build from "./components/Build/Build";
 
 function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/editor" element={<Joditeditor />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/singlepost" element={<Singlepost />} />
+        <Route
+          path="/"
+          element={
+            <PrivateRoute>
+              <Layout />
+            </PrivateRoute>
+          }
+        >
+          <Route path="/editor" element={<Joditeditor />} />
+          <Route path="/latestblog" element={<Latestblog />} />
+          <Route path="/" element={<Projects />} />
+          <Route path="/createproject" element={<CreateProject />} />
+          <Route path="/build" element={<Build />} />
+        </Route>
       </Routes>
     </div>
   );
