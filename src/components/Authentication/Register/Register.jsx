@@ -8,7 +8,8 @@ import { useNavigate } from "react-router-dom";
 function Register() {
   const navigate = useNavigate();
   //pass data to db
-  const passDataToDb = () => {
+  const passDataToDb = (event) => {
+    event.preventDefault();
     setUsername(username);
     setEmail(email);
     setPassword(password);

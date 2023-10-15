@@ -6,7 +6,8 @@ import { useNavigate } from "react-router-dom";
 function Login() {
   const navigate = useNavigate();
   //pass data to db
-  const passDataToDb = () => {
+  const passDataToDb = (event) => {
+    event.preventDefault();
     setEmail(email);
     setPassword(password);
     axios({
@@ -18,11 +19,9 @@ function Login() {
       },
     }).then(function (res) {
       window.stop();
-      console.log(res);
       if (res.data.user) {
         localStorage.setItem("token", res.data.user.token);
         localStorage.setItem("userID", res.data.user.userID);
-       
         return navigate("/", { replace: true });
       } else {
         window.stop();
