@@ -11,7 +11,8 @@ import PrivateRoute from "./components/Protected/PrivateRoute";
 import Latestblog from "./components/Blogs/Latestblog/Latestblog";
 import Projects from "./components/Projects/Projects";
 import CreateProject from "./components/Projects/CreateProject";
-import Build from "./components/Build/Build";
+//import Build from "./components/Build/Build";
+import BoardLayout from "./components/AnalyticalBoard/BoardLayout/BoardLayout";
 
 function App() {
   return (
@@ -33,7 +34,7 @@ function App() {
           <Route path="/latestblog" element={<Latestblog />} />
           <Route path="/" element={<Projects />} />
           <Route path="/createproject" element={<CreateProject />} />
-          <Route path="/build" element={<Build />} />
+          <Route path="/board" element={<BoardLayout />} />
         </Route>
       </Routes>
     </div>

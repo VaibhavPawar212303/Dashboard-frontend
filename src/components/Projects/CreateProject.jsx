@@ -5,8 +5,8 @@ function CreateProject() {
   const navigate = useNavigate();
   const userID = localStorage.getItem("userID");
   //pass data to db
-  const passDataToDb = () => {
-    window.stop();
+  const passDataToDb = (event) => {
+    event.preventDefault();
     setprojectname(projectname);
     setprojectdesc(projectdesc);
 

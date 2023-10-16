@@ -42,7 +42,7 @@ function Projects() {
                 <h5 class="card-title">{element.projectName}</h5>
                 <p class="card-text text-left mt-auto">{element.projectDesc}</p>
                 <a
-                  href="/build"
+                  href="/board"
                   class="btn btn-primary mt-auto"
                   onClick={() => setProjectId(element.ProjectID)}
                 >
