@@ -13,6 +13,7 @@ import Projects from "./components/Projects/Projects";
 import CreateProject from "./components/Projects/CreateProject";
 //import Build from "./components/Build/Build";
 import BoardLayout from "./components/AnalyticalBoard/BoardLayout/BoardLayout";
+import Buildreport from "./components/Build/Buildreport";
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
           <Route path="/" element={<Projects />} />
           <Route path="/createproject" element={<CreateProject />} />
           <Route path="/board" element={<BoardLayout />} />
+          <Route path="/buildreport" element={<Buildreport />} />
         </Route>
       </Routes>
     </div>

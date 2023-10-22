@@ -20,8 +20,9 @@ function Login() {
     }).then(function (res) {
       window.stop();
       if (res.data.user) {
-        localStorage.setItem("token", res.data.user.token);
-        localStorage.setItem("userID", res.data.user.userID);
+        console.log(res.data.user)
+        localStorage.setItem("token", res.data.token);
+        localStorage.setItem("userID", res.data.user.user_id);
         return navigate("/", { replace: true });
       } else {
         window.stop();

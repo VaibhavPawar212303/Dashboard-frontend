@@ -4,6 +4,7 @@ import Bars from "../Bars/Bars";
 import Piechart from "../Piechart/Piechart";
 import Buildcount from "../Buildcount/Buildcount";
 import Footer from "../../Footer/Footer";
+import Latestbuild from "../Latestbuild/Latestbuild";
 
 function BoardLayout() {
   return (
@@ -18,6 +19,13 @@ function BoardLayout() {
         <div className="ml-5 w-100 h-100 mr-5 mb-5 mt-3">
           <div class="p-2 ml-5 mt-5 bg-white rounded-sm border border-gray-400 flex item-center shadow-sm">
             <Piechart />
+          </div>
+        </div>
+      </div>
+      <div className="ml-5">
+        <div className="ml-5 mt-2 w-75 bg-white rounded-sm border border-gray-400">
+          <div className="w-100">
+            <Latestbuild />
           </div>
         </div>
       </div>

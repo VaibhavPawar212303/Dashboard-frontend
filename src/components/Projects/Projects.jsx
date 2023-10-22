@@ -34,17 +34,17 @@ function Projects() {
         </a>
       </div>
 
-      <div class="row mb-5 ml-5 w-75">
+      <div class="row mb-5 ml-5 w-25">
         {project.map((element) => (
-          <div class="col-sm-3 mb-3">
-            <div class="card mb-5 h-100 w-100" key={element.ProjectID}>
-              <div class="card-body d-flex flex-column mt-auto">
-                <h5 class="card-title">{element.projectName}</h5>
-                <p class="card-text text-left mt-auto">{element.projectDesc}</p>
+          <div>
+            <div class="card bg-light mb-3" key={element.ProjectID}>
+              <h5 class="card-title mt-3">{element.project_name}</h5>
+              <div class="card-body">
+                <div class="card-header mb-3">{element.project_desc}</div>
                 <a
                   href="/board"
-                  class="btn btn-primary mt-auto"
-                  onClick={() => setProjectId(element.ProjectID)}
+                  class="btn btn-primary mt-auto mt-3"
+                  onClick={() => setProjectId(element.project_id)}
                 >
                   Click
                 </a>
