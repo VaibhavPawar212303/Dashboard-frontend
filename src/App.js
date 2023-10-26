@@ -33,7 +33,7 @@ function App() {
         >
           <Route path="/editor" element={<Joditeditor />} />
           <Route path="/latestblog" element={<Latestblog />} />
-          <Route path="/" element={<BoardLayout />} />
+          <Route path="/" element={<Projects />} />
           <Route path="/project" element={<Projects />} />
           <Route path="/createproject" element={<CreateProject />} />
           <Route path="/board" element={<BoardLayout />} />
