@@ -8,7 +8,7 @@ function Latestbuild() {
   };
   const [build, setBuild] = useState([]);
   const getBuild = () => {
-    fetch(`https://dappled-blog-api.onrender.com/api/build//getallbuild/${projectID}`, {
+    fetch(`https://dappled-blog-api.onrender.com/api/build/getallbuild/${projectID}`, {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
