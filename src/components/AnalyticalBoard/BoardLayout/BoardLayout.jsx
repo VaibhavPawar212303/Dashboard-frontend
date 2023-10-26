@@ -9,31 +9,18 @@ import Latestbuild from "../Latestbuild/Latestbuild";
 function BoardLayout() {
   return (
     <div className="bg-white">
-      <div className="ml-5">
+      <div>
         <Buildcount />
       </div>
-      <div class="d-flex flex-row mt-2 ml-5">
-        <div class="p-2 ml-5 w-75 h-75 mt-5 bg-white rounded-sm border border-gray-400 flex item-center shadow-sm">
+      <div>
+        <div className="d-flex flex flex-row p-2 mt-5 bg-white rounded-sm border border-gray-400 flex item-center shadow-sm mr-5">
           <Bars />
-        </div>
-        <div className="ml-5 w-100 h-100 mr-5 mb-5 mt-3">
-          <div class="p-2 ml-5 mt-5 bg-white rounded-sm border border-gray-400 flex item-center shadow-sm">
-            <Piechart />
-          </div>
+          <Piechart />
         </div>
       </div>
-      <div className="ml-5">
-        <div className="ml-5 mt-2 w-75 bg-white rounded-sm border border-gray-400">
-          <div className="w-100">
-            <Latestbuild />
-          </div>
-        </div>
-      </div>
-      <div className="ml-5">
-        <div className="ml-5 mt-5 w-75 bg-white rounded-sm border border-gray-400 flex item-center shadow-sm">
-          <div className="w-75 ml-5 mt-5">
-            <Linegraph />
-          </div>
+      <div className="mr-5">
+        <div className="mt-5 w-100 bg-white rounded-sm border border-gray-400 w-full mr-5">
+          <Latestbuild />
         </div>
       </div>
       <Footer />

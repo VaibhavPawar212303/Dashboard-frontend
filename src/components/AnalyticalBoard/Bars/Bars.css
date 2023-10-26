@@ -1,0 +1,10 @@
+.BarData{
+    height: 22rem;
+    width: 42rem;
+}
+
+.Piechart{
+    height: 15rem;
+    width: 20rem;
+    margin-left: 100px;
+}

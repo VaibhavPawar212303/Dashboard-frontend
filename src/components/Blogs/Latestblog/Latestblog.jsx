@@ -21,7 +21,7 @@ export default function Latestblog() {
   };
   return (
     <>
-      <div class="row mb-5 ml-5 w-100">
+      <div class="row mb-5 ml-5 w-100 mt-5">
         {content.map((element) => (
           <div class="col-sm-3 mb-3">
             <div class="card mb-5 h-100 w-100" key={element.BlogID}>

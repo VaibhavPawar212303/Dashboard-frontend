@@ -2,6 +2,7 @@ import React from "react";
 
 function Navbar() {
   return (
+   
     <div>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand ml-1" href="/home">

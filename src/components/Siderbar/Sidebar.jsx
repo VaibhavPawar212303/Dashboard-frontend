@@ -1,79 +1,56 @@
 import React from "react";
 import "../Siderbar/Sidebar.css";
+import logo from "../images/Testrig-logo-white.svg";
+import Header from "./Header";
+import { Outlet } from "react-router-dom";
 function Sidebar() {
-  const LogoutUser = (req, res) => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('userID')
-  };
+
   return (
-    <>
-      <header>
-        <nav
-          id="sidebarMenu"
-          class="collapse d-lg-block sidebar collapse bg-white"
-        >
-          <div class="position-sticky">
-            <div class="list-group list-group-flush mx-3 mt-4">
+    <div class="container-fluid w-full">
+      <div class="row flex-nowrap">
+        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-success bg-success">
+          <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
             <a
-                href="/"
-                class="list-group-item list-group-item-action py-2 ripple"
-                aria-current="true"
-              >
-                <i class="fas fa-tachometer-alt fa-fw me-3"></i>
-                <span>Projects</span>
-              </a>
-              <a
-                href="/latestblog"
-                class="list-group-item list-group-item-action py-2 ripple"
-                aria-current="true"
-              >
-                <i class="fas fa-tachometer-alt fa-fw me-3"></i>
-                <span>Created Blogs</span>
-              </a>
-              <a
-                href="/editor"
-                class="list-group-item list-group-item-action py-2 ripple"
-                aria-current="true"
-              >
-                <i class="fas fa-tachometer-alt fa-fw me-3"></i>
-                <span>Editor</span>
-              </a>
-            </div>
-          </div>
-        </nav>
-        <nav
-          id="main-navbar"
-          class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"
-        >
-          <div class="container-fluid">
-            <button
-              class="navbar-toggler"
-              type="button"
-              data-mdb-toggle="collapse"
-              data-mdb-target="#sidebarMenu"
-              aria-controls="sidebarMenu"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
+              href="/"
+              class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none"
             >
-              <i class="fas fa-bars"></i>
-            </button>
-            <a class="navbar-brand" href="/home">
-              DAPPLED
+              <span class="fs-5 d-none d-sm-inline">
+                <img src={logo} width={200} height={50} />
+              </span>
             </a>
+            <ul
+              class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
+              id="menu"
+            >
+              <li>
+                <a href="/" class="nav-link px-0 align-middle">
+                  <i class="fs-4 bi-speedometer2 text-white"></i>{" "}
+                  <span class="ms-1 d-none d-sm-inline text-white">
+                    Dashboard
+                  </span>{" "}
+                </a>
+              </li>
+
+              <li>
+                <a href="/project" class="nav-link px-0 align-middle">
+                  <i class="fs-4 bi-grid text-white"></i>
+                  <span class="ms-1 d-none d-sm-inline text-white">
+                    Project
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <hr />
           </div>
-          <button
-            class="btn btn-outline-success my-2 my-sm-0 mr-3"
-            type="submit"
-            onClick={LogoutUser}
-          >
-            Logout
-          </button>
-        </nav>
-      </header>
-      <main className="main">
-        <div class="container pt-4"></div>
-      </main>
-    </>
+        </div>
+        <div class="col py-3">
+          <Header />
+          <div>
+            <div className="ml-5"> {<Outlet />}</div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 
