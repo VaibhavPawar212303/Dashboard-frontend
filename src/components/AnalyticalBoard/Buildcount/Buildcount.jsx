@@ -9,51 +9,50 @@ import {
 
 function Buildcount() {
   return (
-    <div className="ml-3">
-      <div className="d-flex gap-4 ml-5">
-        <div className="bg-white rounded-sm mt-3 flex-1 border border-gray-400 flex item-center shadow-sm">
-          <div className="rounded-full h-12 w-12 flex items-center justify-center bg-green-400 mt-1 ml-4 mb-1">
-            <BsBugFill />
-          </div>
-          <div className="pl-2 mr-5">
-            <span className="ml-2">Total Regression Test</span>
-            <div className="flex items-center justify-center">1</div>
-          </div>
-        </div>
-        <div className="bg-white rounded-sm mt-3 flex-1 border border-gray-400 flex item-center shadow-sm">
-          <div className="rounded-full h-12 w-12 flex items-center justify-center bg-sky-400 mt-1 ml-4 mb-1">
-            <BsEye />
-          </div>
-          <div className="pl-2 mr-5">
-            <span className="ml-2">Total Visual Test</span>
-            <div className="items-center justify-center">1</div>
+    <div class="container-fluid mt-5">
+      <div class="row">
+        <div class="col-md-3 mb-3">
+          <div class="card bg-primary text-white h-100">
+            <div class="card-body py-5">Primary Card</div>
+            <div class="card-footer d-flex">
+              View Details
+              <span class="ms-auto">
+                <i class="bi bi-chevron-right"></i>
+              </span>
+            </div>
           </div>
         </div>
-        <div className="bg-white rounded-sm mt-3 flex-1 border border-gray-400 flex item-center shadow-sm">
-          <div className="rounded-full h-12 w-12 flex items-center justify-center bg-red-300 mt-1 ml-4 mb-1">
-            <BsXDiamond />
-          </div>
-          <div className="pl-2 mr-5">
-            <span className="ml-2">Total API Test</span>
-            <div className="flex items-center justify-center">1</div>
-          </div>
-        </div>
-        <div className="bg-white rounded-sm mt-3 flex-1 border border-gray-400 flex item-center shadow-sm">
-          <div className="rounded-full h-12 w-12 flex items-center justify-center bg-orange-300 mt-1 ml-4 mb-1">
-            <BsAwardFill />
-          </div>
-          <div className="pl-2 mr-5">
-            <span className="ml-2">Total Smoke Test</span>
-            <div className="flex items-center justify-center">1</div>
+        <div class="col-md-3 mb-3">
+          <div class="card bg-warning text-dark h-100">
+            <div class="card-body py-5">Warning Card</div>
+            <div class="card-footer d-flex">
+              View Details
+              <span class="ms-auto">
+                <i class="bi bi-chevron-right"></i>
+              </span>
+            </div>
           </div>
         </div>
-        <div className="bg-white rounded-sm mt-3 flex-1 border border-gray-400 flex item-center shadow-sm ml-2">
-          <div className="rounded-full h-12 w-12 flex items-center justify-center bg-orange-100 mt-1 mb-1">
-            <BsBox />
+        <div class="col-md-3 mb-3">
+          <div class="card bg-success text-white h-100">
+            <div class="card-body py-5">Success Card</div>
+            <div class="card-footer d-flex">
+              View Details
+              <span class="ms-auto">
+                <i class="bi bi-chevron-right"></i>
+              </span>
+            </div>
           </div>
-          <div className="pl-4 mr-5">
-            <span className="ml-2">Total Test</span>
-            <div className="items-center justify-center">4</div>
+        </div>
+        <div class="col-md-3 mb-3">
+          <div class="card bg-danger text-white h-100">
+            <div class="card-body py-5">Danger Card</div>
+            <div class="card-footer d-flex">
+              View Details
+              <span class="ms-auto">
+                <i class="bi bi-chevron-right"></i>
+              </span>
+            </div>
           </div>
         </div>
       </div>

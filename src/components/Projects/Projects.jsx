@@ -34,7 +34,7 @@ function Projects() {
         </a>
       </div>
 
-      <div class="row mb-5 ml-5 w-25">
+      <div class="row mb-5 w-25">
         {project.map((element) => (
           <div>
             <div class="card bg-light mb-3" key={element.ProjectID}>

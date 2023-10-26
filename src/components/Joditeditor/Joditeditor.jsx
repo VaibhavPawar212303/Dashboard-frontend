@@ -36,8 +36,8 @@ const Joditeditor = () => {
 
   return (
     <>
-      <div className="ml-3">
-        <span className="input-group-text w-75 ml-5" id="inputGroup-sizing-lg">
+      <div className="ml-3 mt-5">
+        <span className="input-group-text w-75 ml-5" id="inputGroup-sizing-lg mt-5">
           Create Your Blog
         </span>
         <div className="ml-5">

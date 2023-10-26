@@ -24,7 +24,7 @@ function Latestbuild() {
 
   return (
     <div>
-      <h6>Build Executed</h6>
+      <h4 className="mb-3 mt-3">Build Executed</h4>
       <table class="table">
         <thead class="thead-dark">
           <tr>
