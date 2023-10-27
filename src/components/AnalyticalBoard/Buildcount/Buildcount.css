@@ -1,0 +1,11 @@
+.my-card {
+  position: absolute;
+  left: 40%;
+  top: -20px;
+  border-radius: 50%;
+  width: 60px;
+}
+
+.demo-card{
+    width: 70rem;
+}

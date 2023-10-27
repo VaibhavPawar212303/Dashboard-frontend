@@ -28,17 +28,17 @@ function Latestbuild() {
       <table class="table">
         <thead class="thead-dark">
           <tr>
-            <th scope="col">Build Name</th>
-            <th scope="col">Build Start At</th>
+            <th scope="col">Test Name</th>
+            <th scope="col">Test Executed</th>
             <th scope="col">Build Status</th>
-            <th scope="col">Check Build</th>
+            <th scope="col">Check Tests</th>
           </tr>
         </thead>
         {build.map((element) => (
           <tbody>
             <tr>
               <td>{element.build_data.name}</td>
-              <td>{element.build_data.startedAt}</td>
+              <td>{new Date(element.build_data.startedAt).toLocaleDateString()}</td>
               <td>{element.status}</td>
               <td>
                 <a
@@ -46,7 +46,7 @@ function Latestbuild() {
                   class="btn btn-primary mt-auto"
                   onClick={setBuildId(element.buildid)}
                 >
-                  Check
+                  Test Details
                 </a>
               </td>
             </tr>

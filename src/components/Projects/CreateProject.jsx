@@ -42,41 +42,39 @@ function CreateProject() {
   };
 
   return (
-    <div className="ml-5">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-offset-3 col-md-6">
-            <div class="form-container">
-              <h3 class="title">Create Project</h3>
-              <p>{message}</p>
-              <form class="form-horizontal">
-                <div class="form-group">
-                  <label>Project Name</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Project Name"
-                    value={projectname}
-                    onChange={setProjectName}
-                  />
-                </div>
-                <div class="form-group"></div>
-                <div class="form-group">
-                  <label>Project Describtion</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Project Describtion"
-                    value={projectdesc}
-                    onChange={setProjectDesc}
-                  />
-                </div>
-                <div class="form-group"></div>
-                <button class="btn signup" onClick={passDataToDb}>
-                  Create Project
-                </button>
-              </form>
-            </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-offset-3 col-md-6">
+          <div class="form-container">
+            <h3 class="title">Create Project</h3>
+            <p>{message}</p>
+            <form class="form-horizontal">
+              <div class="form-group">
+                <label>Project Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Project Name"
+                  value={projectname}
+                  onChange={setProjectName}
+                />
+              </div>
+              <div class="form-group"></div>
+              <div class="form-group">
+                <label>Project Describtion</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Project Describtion"
+                  value={projectdesc}
+                  onChange={setProjectDesc}
+                />
+              </div>
+              <div class="form-group"></div>
+              <button class="btn signup" onClick={passDataToDb}>
+                Create Project
+              </button>
+            </form>
           </div>
         </div>
       </div>

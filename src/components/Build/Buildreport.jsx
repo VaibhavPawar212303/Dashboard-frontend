@@ -2,6 +2,23 @@ import { React, useState, useEffect } from "react";
 
 function Buildreport() {
   let BuildId = localStorage.getItem("BuildId");
+  let numberofTestpass = 0;
+  let numberofTestfail = 0;
+  let numberofTestskip = 0;
+  const getBuild = () => {
+    fetch(
+      `https://dappled-blog-api.onrender.com/api/build/getbuild/${BuildId}`,
+      {
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        method: "GET",
+      }
+    )
+      .then((response) => response.json())
+      .then((data) => setTest(data.Builds[0].build_data.results));
+  };
   const [test, setTest] = useState([]);
 
   const testArray = [];
@@ -45,86 +62,141 @@ function Buildreport() {
 
       testArray.push(testobject);
     }
-    console.log(testArray);
   };
 
-  const getBuild = () => {
-    fetch(`https://dappled-blog-api.onrender.com/api/build/getbuild/${BuildId}`, {
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      method: "GET",
-    })
-      .then((response) => response.json())
-      .then((data) => setTest(data.Builds[0].build_data.results));
-  };
   useEffect(() => {
     getBuild();
   }, []);
 
+  function numberOfTestPassedOrFail() {
+    testArray.map((element) => {
+      if (element.testStatus === "pass") {
+        numberofTestpass++;
+      } else if (element.testStatus === "fail") {
+        numberofTestfail++;
+      } else if (element.testStatus === "skip") {
+        numberofTestskip++;
+      }
+    });
+  }
+
   testBuild();
+  numberOfTestPassedOrFail();
+
+  function testStatus(status) {
+    if (status.pass == 1) {
+      return <span class="badge badge-success">Pass</span>;
+    } else {
+      return <span class="badge badge-danger">Fail</span>;
+    }
+  }
 
   return (
-   
-    <div className="ml-5 mb-5 w-100 px-2">
-      <>
-        {testArray.map((element) => (
-          <div id="accordion" className="w-75 ml-5 mb-3">
-            <div class="card">
-              <div class="card-header">
-                <div className="d-flex justify-content-start">
-                  <a
-                    class="card-link"
-                    data-toggle="collapse"
-                    href={"#" + element.testid}
-                  >
-                    <small>{element.testname}</small>
-                  </a>
-                </div>
+    <>
+      <div class="row mb-5 mr-5">
+        <div class="col-sm-3">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Total Request</h5>
+              <p class="card-text">{testArray.length}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card bg-success">
+            <div class="card-body">
+              <h5 class="card-title">Test Passed</h5>
+              <p class="card-text">{numberofTestpass}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card bg-danger">
+            <div class="card-body">
+              <h5 class="card-title">Test Failed</h5>
+              <p class="card-text">{numberofTestfail}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card bg-warning">
+            <div class="card-body">
+              <h5 class="card-title">Test Skipped</h5>
+              <p class="card-text">{numberofTestskip}</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
-                <div className="d-flex  justify-content-end">
-                  <span class="badge badge-success">
-                    Pass :- {element.assertionPass}
-                  </span>
-                  <span class="badge badge-danger ml-3">
-                    Fail :- {element.assertionfail}
-                  </span>
-                  <span class="badge badge-warning ml-3">
-                    Test Status:- {element.testStatus}
-                  </span>
+      <p>
+        <div class="card w-50">
+          <div class="card-header">
+            <div className="d-flex justify-content-start">
+              <a
+                class="card-link"
+                data-toggle="collapse"
+                role="button"
+                href="#test"
+              >
+                <small>Test Executed</small>
+              </a>
+            </div>
+          </div>
+        </div>
+      </p>
+
+      <div className="mb-5 w-100 px-2" id="test">
+        {testArray.map((element) => (
+          <div>
+            <p>
+              <div class="card w-50" aria-expanded="false">
+                <div class="card-header">
+                  <div className="d-flex justify-content-start">
+                    <a
+                      class="card-link"
+                      data-toggle="collapse"
+                      role="button"
+                      aria-expanded="false"
+                      href={"#" + element.testid}
+                    >
+                      <small>{element.testname}</small>
+                    </a>
+                  </div>
+
+                  <div className="d-flex  justify-content-end">
+                    <span class="badge badge-success">
+                      Pass :- {element.assertionPass}
+                    </span>
+                    <span class="badge badge-danger ml-3">
+                      Fail :- {element.assertionfail}
+                    </span>
+                    <span class="badge badge-warning ml-3">
+                      Test Status:- {element.testStatus}
+                    </span>
+                  </div>
                 </div>
               </div>
-
+            </p>
+            <div class="collapse w-50 card mb-2" id={element.testid}>
               <div
                 id={element.testid}
                 class="collapse show"
                 data-parent="#accordion"
+                aria-expanded="false"
               >
-                <div class="col-md-8">
-                  <div class="pb-3 bg-primary mt-3">
-                    <div class="card-body">
-                      <h7 class="card-subtitle"> Request Method :-</h7>
-                      <br />
-                      <h7 class="card-subtitle mb-2 text-muted">
-                        Request Url:- {element.testurl}
-                      </h7>
-                    </div>
-                  </div>
+                <div class="col-md-8 w-100 ml-5">
                   <table class="table table-hover text-start">
                     <thead>
                       <tr>
                         <th scope="col">Test Name</th>
-                        <th scope="col">Pass</th>
-                        <th scope="col">Fail</th>
+                        <th scope="col">Status</th>
                       </tr>
                     </thead>
                     <tbody>
                       {element.testAssertions.map((element) => (
                         <tr>
                           <td>{element.Assertion}</td>
-                          <td>{element.Status.pass}</td>
-                          <td>{element.Status.fail}</td>
+                          <td>{testStatus(element.Status)}</td>
                         </tr>
                       ))}
                     </tbody>
@@ -134,8 +206,8 @@ function Buildreport() {
             </div>
           </div>
         ))}
-      </>
-    </div>
+      </div>
+    </>
   );
 }
 
