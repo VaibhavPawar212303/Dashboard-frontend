@@ -5,14 +5,14 @@ function Header() {
   };
   return (
     <div>
-      <header class="d-flex justify-content-center py-3">
+      <header class="d-flex justify-content-end py-3">
         <ul class="nav nav-pills">
           <li class="nav-item">
             <a href="/" class="nav-link active" aria-current="page">
               Home
             </a>
           </li>
-          <li class="nav-item">
+          {/* <li class="nav-item">
             <a href="/latestblog" class="nav-link">
              Blogs
             </a>
@@ -21,7 +21,7 @@ function Header() {
             <a href="/editor" class="nav-link">
               Create Blog
             </a>
-          </li>
+          </li> */}
           <li class="nav-item">
             <a href="#" class="nav-link" onClick={LogoutUser}>
               Logout
