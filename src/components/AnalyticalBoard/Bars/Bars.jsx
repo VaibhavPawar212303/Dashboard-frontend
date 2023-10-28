@@ -9,10 +9,12 @@ import {
   Tooltip,
   Legend,
   ResponsiveContainer,
+  LabelList,
 } from "recharts";
 
 function Bars() {
   const data = [];
+  const dataArray = [];
   let numberOfBuildPass = 0;
   let numberOfBuildFail = 0;
   let numberOfBuildSkip = 0;
@@ -118,6 +120,7 @@ function Bars() {
   numberOfTestPassedOrFail();
 
   for (let i = 0; i < buildArray.length; i++) {
+    const buildCount = numberOfBuildPass;
     const date = new Date(buildArray[i].buildStartAt).toLocaleDateString();
     const tests = buildArray[i].testArray.length;
     const testPass = buildArray[i].testpass;
@@ -128,20 +131,22 @@ function Bars() {
       testPass: testPass,
       testFail: testFail,
     };
-    data.push(buildData);
+    dataArray.push(buildData);
   }
+
+  data.push(dataArray[dataArray.length - 1]);
 
   return (
     <div>
-      <p>Test Builds</p>
+      <p>Test Executed</p>
       <div className="BarData">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart
-            width={100}
-            height={100}
+            width={500}
+            height={300}
             data={data}
             margin={{
-              top: 20,
+              top: 5,
               right: 30,
               left: 20,
               bottom: 5,
@@ -152,9 +157,9 @@ function Bars() {
             <YAxis />
             <Tooltip />
             <Legend />
-            <Bar dataKey="tests" stackId="a" fill="#8884d8" />
-            <Bar dataKey="testFail" stackId="a" fill="#82ca9d" />
-            <Bar dataKey="testPass" fill="#ffc658" />
+            <Bar dataKey="tests" fill="#338fff" minPointSize={5} />
+            <Bar dataKey="testPass" fill="#82ca9d" minPointSize={5}></Bar>
+            <Bar dataKey="testFail" fill="#ff6347" minPointSize={5} />
           </BarChart>
         </ResponsiveContainer>
       </div>

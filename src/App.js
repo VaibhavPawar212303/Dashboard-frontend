@@ -21,8 +21,8 @@ function App() {
       <Routes>
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/singlepost" element={<Singlepost />} />
+        {/* <Route path="/home" element={<Home />} /> */}
+        {/* <Route path="/singlepost" element={<Singlepost />} /> */}
         <Route
           path="/"
           element={
@@ -31,8 +31,8 @@ function App() {
             </PrivateRoute>
           }
         >
-          <Route path="/editor" element={<Joditeditor />} />
-          <Route path="/latestblog" element={<Latestblog />} />
+          {/* <Route path="/editor" element={<Joditeditor />} /> */}
+          {/* <Route path="/latestblog" element={<Latestblog />} /> */}
           <Route path="/" element={<Projects />} />
           <Route path="/project" element={<Projects />} />
           <Route path="/createproject" element={<CreateProject />} />
