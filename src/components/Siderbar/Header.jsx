@@ -8,7 +8,7 @@ function Header() {
       <header class="d-flex justify-content-end py-3">
         <ul class="nav nav-pills">
           <li class="nav-item">
-            <a href="/" class="nav-link active" aria-current="page">
+            <a href="/" class="nav-link">
               Home
             </a>
           </li>
@@ -23,7 +23,7 @@ function Header() {
             </a>
           </li> */}
           <li class="nav-item">
-            <a href="#" class="nav-link" onClick={LogoutUser}>
+            <a href="/login" class="nav-link" onClick={LogoutUser}>
               Logout
             </a>
           </li>

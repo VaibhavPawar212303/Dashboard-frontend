@@ -20,7 +20,6 @@ function Buildreport() {
       .then((data) => setTest(data.Builds[0].build_data.results));
   };
   const [test, setTest] = useState([]);
-
   const testArray = [];
 
   const testBuild = () => {
@@ -28,14 +27,11 @@ function Buildreport() {
       let pass = 0;
       let fail = 0;
       let testobject, teststatus;
-
       var data = test[i].testPassFailCounts;
-
       var output = Object.entries(data).map(([Assertion, Status]) => ({
         Assertion,
         Status,
       }));
-
       for (var j = 0; j < output.length; j++) {
         if (output[j].Status.pass == 1) {
           pass++;

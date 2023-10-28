@@ -1,20 +1,12 @@
 import { React, useState, useEffect } from "react";
 import "../Bars/Bars.css";
-import {
-  PieChart,
-  Pie,
-  Tooltip,
-  ResponsiveContainer,
-  Cell,
-  Legend,
-} from "recharts";
+import { PieChart, Pie, ResponsiveContainer, Cell, Legend } from "recharts";
 
 function Piechart() {
   const data = [];
   let numberOfBuildPass = 0;
   let numberOfBuildFail = 0;
   let numberOfBuildSkip = 0;
-  let testPassPercent, testFailPercent, testSkipPercent;
   let projectID = localStorage.getItem("ProjectID");
   const [build, setBuild] = useState([]);
 
@@ -106,16 +98,13 @@ function Piechart() {
     buildArray.map((element) => {
       if (element.buildStatus === "pass") {
         numberOfBuildPass++;
-      } else if (element.testStatus === "fail") {
+      } else if (element.buildStatus === "fail") {
         numberOfBuildFail++;
       } else {
         numberOfBuildSkip++;
       }
     });
   }
-
-  console.log(buildArray);
-
   testBuild();
   numberOfTestPassedOrFail();
   const testStatusArray = ["TestPassed", "TestFail", "TestSkip"];
@@ -124,10 +113,7 @@ function Piechart() {
     { name: testStatusArray[1], value: numberOfBuildFail },
     { name: testStatusArray[2], value: numberOfBuildSkip }
   );
-
-  console.log(data);
-  const COLORS = ["#0088FE", "#00C49F", "#FFBB28"];
-
+  const COLORS = ["#00C49F", "#ff6347", "#FFBB28"];
   const RADIAN = Math.PI / 180;
   const renderCustomizedLabel = ({
     cx,
@@ -136,12 +122,10 @@ function Piechart() {
     innerRadius,
     outerRadius,
     percent,
-    index,
   }) => {
     const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
     const x = cx + radius * Math.cos(-midAngle * RADIAN);
     const y = cy + radius * Math.sin(-midAngle * RADIAN);
-
     return (
       <text
         x={x}
@@ -157,7 +141,7 @@ function Piechart() {
 
   return (
     <div>
-      <p className="mb-5 ml-5">Test Builds Pass To Fail Ratio</p>
+      <p className="mb-5 ml-5">Test Executed Percentage</p>
       <div className="Piechart">
         <ResponsiveContainer width="100%" height="100%">
           <PieChart width={400} height={400}>
