@@ -1,5 +1,4 @@
 import { Route, Routes } from "react-router-dom";
-import "./App.css";
 import Home from "./components/Home/Home";
 // import Editor from "./components/Editor/Editor";
 import Singlepost from "./components/Blogs/Singlepost/Singlepost";
@@ -14,6 +13,7 @@ import CreateProject from "./components/Projects/CreateProject";
 //import Build from "./components/Build/Build";
 import BoardLayout from "./components/AnalyticalBoard/BoardLayout/BoardLayout";
 import Buildreport from "./components/Build/Buildreport";
+import HelpAndSupport from "./components/HelpAndSupport/HelpAndSupport";
 
 function App() {
   return (
@@ -33,10 +33,11 @@ function App() {
         >
           <Route path="/editor" element={<Joditeditor />} />
           <Route path="/latestblog" element={<Latestblog />} />
-          <Route path="/" element={<Projects />} />
+          <Route path="/" element={<BoardLayout />} />
+          <Route path="/project" element={<Projects />} />
           <Route path="/createproject" element={<CreateProject />} />
-          <Route path="/board" element={<BoardLayout />} />
           <Route path="/buildreport" element={<Buildreport />} />
+          <Route path="/helpandsupport" element={<HelpAndSupport />} />
         </Route>
       </Routes>
     </div>

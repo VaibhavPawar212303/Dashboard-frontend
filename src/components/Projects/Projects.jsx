@@ -4,13 +4,16 @@ function Projects() {
   let userID = localStorage.getItem("userID");
   const [project, setProject] = useState([]);
   const getProject = () => {
-    fetch(`https://dappled-blog-api.onrender.com/api/project/getproject/${userID}`, {
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      method: "GET",
-    })
+    fetch(
+      `https://dappled-blog-api.onrender.com/api/project/getproject/${userID}`,
+      {
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        method: "GET",
+      }
+    )
       .then((response) => response.json())
       .then((data) => setProject(data.projects));
   };
@@ -34,15 +37,15 @@ function Projects() {
         </a>
       </div>
 
-      <div class="row mb-5 ml-5 w-25">
+      <div class="mb-5 ml-5 w-50 h-full">
         {project.map((element) => (
-          <div>
-            <div class="card bg-light mb-3" key={element.ProjectID}>
-              <h5 class="card-title mt-3">{element.project_name}</h5>
+          <div class="col-sm-6">
+            <div class="card" key={element.ProjectID}>
               <div class="card-body">
-                <div class="card-header mb-3">{element.project_desc}</div>
+                <h5 class="card-title">{element.project_name}</h5>
+                <p class="card-text">{element.project_desc}</p>
                 <a
-                  href="/board"
+                  href="/"
                   class="btn btn-primary mt-auto mt-3"
                   onClick={() => setProjectId(element.project_id)}
                 >
