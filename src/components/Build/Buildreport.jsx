@@ -2,9 +2,8 @@ import { React, useState, useEffect } from "react";
 
 function Buildreport() {
   let BuildId = localStorage.getItem("BuildId");
-  let numberofTestpass = 0;
-  let numberofTestfail = 0;
-  let numberofTestskip = 0;
+  const [test, setTest] = useState([]);
+  const [build, setBuild] = useState([]);
   const getBuild = () => {
     fetch(
       `https://dappled-blog-api.onrender.com/api/build/getbuild/${BuildId}`,
@@ -17,70 +16,28 @@ function Buildreport() {
       }
     )
       .then((response) => response.json())
-      .then((data) => setTest(data.Builds[0].build_data.results));
-  };
-  const [test, setTest] = useState([]);
-  const testArray = [];
+      .then((data) => setTest(data.Builds[0].build_data));
 
-  const testBuild = () => {
-    for (var i = 0; i < test.length; i++) {
-      let pass = 0;
-      let fail = 0;
-      let testobject, teststatus;
-      var data = test[i].testPassFailCounts;
-      var output = Object.entries(data).map(([Assertion, Status]) => ({
-        Assertion,
-        Status,
-      }));
-      for (var j = 0; j < output.length; j++) {
-        if (output[j].Status.pass == 1) {
-          pass++;
-        } else {
-          fail++;
-        }
-        if (output.length == pass) {
-          teststatus = "pass";
-        } else {
-          teststatus = "fail";
-        }
-
-        testobject = {
-          testid: test[i].id,
-          testname: test[i].name,
-          testurl: test[i].url,
-          testStatus: teststatus,
-          assertionPass: pass,
-          assertionfail: fail,
-          totalAssertions: output.length,
-          testAssertions: output,
-        };
+    fetch(
+      `https://dappled-blog-api.onrender.com/api/build/getbuild/${BuildId}`,
+      {
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        method: "GET",
       }
-
-      testArray.push(testobject);
-    }
+    )
+      .then((response) => response.json())
+      .then((data) => setBuild(data.Builds[0].build_data.tests));
   };
 
   useEffect(() => {
     getBuild();
   }, []);
 
-  function numberOfTestPassedOrFail() {
-    testArray.map((element) => {
-      if (element.testStatus === "pass") {
-        numberofTestpass++;
-      } else if (element.testStatus === "fail") {
-        numberofTestfail++;
-      } else if (element.testStatus === "skip") {
-        numberofTestskip++;
-      }
-    });
-  }
-
-  testBuild();
-  numberOfTestPassedOrFail();
-
   function testStatus(status) {
-    if (status.pass == 1) {
+    if (status == "pass") {
       return <span class="badge badge-success">Pass</span>;
     } else {
       return <span class="badge badge-danger">Fail</span>;
@@ -89,12 +46,19 @@ function Buildreport() {
 
   return (
     <>
+      <h1 class="display-6 d-flex justify-content-start">
+        {" "}
+        Test Name :- {test.buildName}
+      </h1>
+      <p class="d-flex justify-content-start mb-5">
+        Test Executed On :- {new Date(test.buildStartedAt).toLocaleDateString()}
+      </p>
       <div class="row mb-5 mr-5">
         <div class="col-sm-3">
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Total Request</h5>
-              <p class="card-text">{testArray.length}</p>
+              <p class="card-text">{test.totalAssertion}</p>
             </div>
           </div>
         </div>
@@ -102,7 +66,7 @@ function Buildreport() {
           <div class="card bg-success">
             <div class="card-body">
               <h5 class="card-title">Test Passed</h5>
-              <p class="card-text">{numberofTestpass}</p>
+              <p class="card-text">{test.totalPassAssertion}</p>
             </div>
           </div>
         </div>
@@ -110,7 +74,7 @@ function Buildreport() {
           <div class="card bg-danger">
             <div class="card-body">
               <h5 class="card-title">Test Failed</h5>
-              <p class="card-text">{numberofTestfail}</p>
+              <p class="card-text">{test.totalFailAssertion}</p>
             </div>
           </div>
         </div>
@@ -118,7 +82,7 @@ function Buildreport() {
           <div class="card bg-warning">
             <div class="card-body">
               <h5 class="card-title">Test Skipped</h5>
-              <p class="card-text">{numberofTestskip}</p>
+              <p class="card-text">0</p>
             </div>
           </div>
         </div>
@@ -142,7 +106,7 @@ function Buildreport() {
       </p>
 
       <div className="mb-5 w-100 px-2" id="test">
-        {testArray.map((element) => (
+        {build.map((test) => (
           <div>
             <p>
               <div class="card w-50" aria-expanded="false">
@@ -153,29 +117,29 @@ function Buildreport() {
                       data-toggle="collapse"
                       role="button"
                       aria-expanded="false"
-                      href={"#" + element.testid}
+                      href={"#" + test.testid}
                     >
-                      <small>{element.testname}</small>
+                      <small>{test.testname}</small>
                     </a>
                   </div>
 
                   <div className="d-flex  justify-content-end">
                     <span class="badge badge-success">
-                      Pass :- {element.assertionPass}
+                      Assertions Pass :- {test.totalAssertionPass}
                     </span>
                     <span class="badge badge-danger ml-3">
-                      Fail :- {element.assertionfail}
+                      Assertions Fail :- {test.totalAssertionFail}
                     </span>
                     <span class="badge badge-warning ml-3">
-                      Test Status:- {element.testStatus}
+                      Test Status:- {testStatus(test.testStatus)}
                     </span>
                   </div>
                 </div>
               </div>
             </p>
-            <div class="collapse w-50 card mb-2" id={element.testid}>
+            <div class="collapse w-50 card mb-2" id={test.testid}>
               <div
-                id={element.testid}
+                id={test.testid}
                 class="collapse show"
                 data-parent="#accordion"
                 aria-expanded="false"
@@ -189,10 +153,10 @@ function Buildreport() {
                       </tr>
                     </thead>
                     <tbody>
-                      {element.testAssertions.map((element) => (
+                      {test.assertions.map((element) => (
                         <tr>
-                          <td>{element.Assertion}</td>
-                          <td>{testStatus(element.Status)}</td>
+                          <td>{element.assertion}</td>
+                          <td>{testStatus(test.testStatus)}</td>
                         </tr>
                       ))}
                     </tbody>
