@@ -4,9 +4,6 @@ import { PieChart, Pie, ResponsiveContainer, Cell, Legend } from "recharts";
 
 function Piechart() {
   const data = [];
-  let numberOfBuildPass = 0;
-  let numberOfBuildFail = 0;
-  let numberOfBuildSkip = 0;
   let projectID = localStorage.getItem("ProjectID");
   const [build, setBuild] = useState([]);
 
@@ -22,97 +19,20 @@ function Piechart() {
       }
     )
       .then((response) => response.json())
-      .then((data) => setBuild(data.Builds));
-  };
-
-  const buildArray = [];
-
-  const testBuild = () => {
-    let buildStatus;
-    let testobject;
-    for (var i = 0; i < build.length; i++) {
-      const testArray = [];
-      let buildPassCount = 0;
-      let buildFailCount = 0;
-      for (var j = 0; j < build[i].build_data.results.length; j++) {
-        let pass = 0;
-        let fail = 0;
-        let teststatus;
-        var data = build[i].build_data.results[j].testPassFailCounts;
-        var output = Object.entries(data).map(([Assertion, Status]) => ({
-          Assertion,
-          Status,
-        }));
-        for (var k = 0; k < output.length; k++) {
-          if (output[k].Status.pass == 1) {
-            pass++;
-          } else {
-            fail++;
-          }
-          if (output.length == pass) {
-            teststatus = "pass";
-          } else {
-            teststatus = "fail";
-          }
-        }
-        testobject = {
-          testid: build[i].build_data.id,
-          testname: build[i].build_data.name,
-          assertionPass: pass,
-          assertionfail: fail,
-          teststatus: teststatus,
-          totalAssertions: output.length,
-          testAssertions: output,
-        };
-        testArray.push(testobject);
-      }
-      for (var k = 0; k < testArray.length; k++) {
-        if (testArray[k].teststatus == "pass") {
-          buildPassCount++;
-        } else {
-          buildFailCount++;
-        }
-        if (testArray.length == buildPassCount) {
-          buildStatus = "pass";
-        } else {
-          buildStatus = "fail";
-        }
-      }
-
-      buildArray.push({
-        buildId: `${build[i].buildid}`,
-        buildStartAt: build[i].build_data.timestamp,
-        buildStatus: buildStatus,
-        testpass: buildPassCount,
-        testfail: buildFailCount,
-        testArray,
-      });
-    }
+      .then((data) => setBuild(data.Builds[data.Builds.length - 1].build_data));
   };
 
   useEffect(() => {
     getBuild();
   }, []);
 
-  function numberOfTestPassedOrFail() {
-    buildArray.map((element) => {
-      if (element.buildStatus === "pass") {
-        numberOfBuildPass++;
-      } else if (element.buildStatus === "fail") {
-        numberOfBuildFail++;
-      } else {
-        numberOfBuildSkip++;
-      }
-    });
-  }
-  testBuild();
-  numberOfTestPassedOrFail();
   const testStatusArray = ["TestPassed", "TestFail", "TestSkip"];
   data.push(
-    { name: testStatusArray[0], value: numberOfBuildPass },
-    { name: testStatusArray[1], value: numberOfBuildFail },
-    { name: testStatusArray[2], value: numberOfBuildSkip }
+    { name: testStatusArray[0], value: build.totalPassAssertion },
+    { name: testStatusArray[1], value: build.totalFailAssertion },
+    { name: testStatusArray[2], value: 0 }
   );
+
   const COLORS = ["#00C49F", "#ff6347", "#FFBB28"];
   const RADIAN = Math.PI / 180;
   const renderCustomizedLabel = ({
