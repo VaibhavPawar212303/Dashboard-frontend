@@ -4,7 +4,7 @@ function Projects() {
   let userID = localStorage.getItem("userID");
   const [project, setProject] = useState([]);
   const getProject = () => {
-    fetch(`https://dappled-blog-api.onrender.com/api/project/getproject/${userID}`, {
+    fetch(`https://dashboard-api-backhend-production.up.railway.app/api/project/getproject/${userID}`, {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
