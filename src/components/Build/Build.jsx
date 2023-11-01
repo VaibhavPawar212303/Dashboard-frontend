@@ -5,7 +5,7 @@ function Build() {
   const [build, setBuild] = useState([]);
   let builds = [];
   const getBuild = () => {
-    fetch(`https://dappled-blog-api.onrender.com/api/build/getbuild/${projctID}`, {
+    fetch(`https://dashboard-api-backhend-production.up.railway.app/api/build/getbuild/${projctID}`, {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",

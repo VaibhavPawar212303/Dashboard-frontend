@@ -9,7 +9,7 @@ function Piechart() {
 
   const getBuild = () => {
     fetch(
-      `https://dappled-blog-api.onrender.com/api/build/getallbuild/${projectID}`,
+      `https://dashboard-api-backhend-production.up.railway.app/api/build/getallbuild/${projectID}`,
       {
         headers: {
           Accept: "application/json",

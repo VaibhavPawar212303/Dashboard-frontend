@@ -6,7 +6,7 @@ function Buildreport() {
   const [build, setBuild] = useState([]);
   const getBuild = () => {
     fetch(
-      `https://dappled-blog-api.onrender.com/api/build/getbuild/${BuildId}`,
+      `https://dashboard-api-backhend-production.up.railway.app/api/build/getbuild/${BuildId}`,
       {
         headers: {
           Accept: "application/json",
@@ -19,7 +19,7 @@ function Buildreport() {
       .then((data) => setTest(data.Builds[0].build_data));
 
     fetch(
-      `https://dappled-blog-api.onrender.com/api/build/getbuild/${BuildId}`,
+      `https://dashboard-api-backhend-production.up.railway.app/api/build/getbuild/${BuildId}`,
       {
         headers: {
           Accept: "application/json",
