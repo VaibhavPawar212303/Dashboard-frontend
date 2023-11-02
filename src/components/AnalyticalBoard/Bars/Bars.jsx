@@ -34,14 +34,26 @@ function Bars() {
   useEffect(() => {
     getBuild();
   }, []);
-  for (let i = 0; i < build.length; i++) {
+
+  build.forEach((element) => {
     let testdata = {
-      date:new Date (build[i].build_data.buildStartedAt).toLocaleDateString(),
-      testPass: build[i].build_data.totalPassAssertion,
-      testFail: build[i].build_data.totalFailAssertion,
+      date: new Date(element.build_data.buildStartedAt).toLocaleDateString(),
+      Pass: element.build_data.totalPassAssertion,
+      Fail: element.build_data.totalFailAssertion,
     };
     data.push(testdata);
-  }
+  });
+
+  let reverseArray = data.reverse();
+
+  let updateArray = new Array(
+    reverseArray[5],
+    reverseArray[4],
+    reverseArray[3],
+    reverseArray[2],
+    reverseArray[1],
+    reverseArray[0]
+  );
 
   return (
     <div>
@@ -51,7 +63,7 @@ function Bars() {
           <BarChart
             width={500}
             height={300}
-            data={data}
+            data={updateArray}
             margin={{
               top: 5,
               right: 30,
@@ -64,8 +76,8 @@ function Bars() {
             <YAxis />
             <Tooltip />
             <Legend />
-            <Bar dataKey="testPass" fill="#82ca9d" minPointSize={5}></Bar>
-            <Bar dataKey="testFail" fill="#ff6347" minPointSize={5} />
+            <Bar dataKey="Pass" fill="#82ca9d" minPointSize={5}></Bar>
+            <Bar dataKey="Fail" fill="#ff6347" minPointSize={5} />
           </BarChart>
         </ResponsiveContainer>
       </div>

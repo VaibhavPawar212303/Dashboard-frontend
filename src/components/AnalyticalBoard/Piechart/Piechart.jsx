@@ -26,7 +26,7 @@ function Piechart() {
     getBuild();
   }, []);
 
-  const testStatusArray = ["TestPassed", "TestFail", "TestSkip"];
+  const testStatusArray = ["Test Passed", "Test Fail", "Test Skip"];
   data.push(
     { name: testStatusArray[0], value: build.totalPassAssertion },
     { name: testStatusArray[1], value: build.totalFailAssertion },
@@ -63,7 +63,7 @@ function Piechart() {
     <div>
       <p className="mb-5 ml-5">Test Executed Percentage</p>
       <div className="Piechart">
-        <ResponsiveContainer width="100%" height="100%">
+        <ResponsiveContainer width="100%" height="132%">
           <PieChart width={400} height={400}>
             <Legend />
             <Pie
@@ -72,7 +72,7 @@ function Piechart() {
               cy="50%"
               labelLine={false}
               label={renderCustomizedLabel}
-              outerRadius={80}
+              outerRadius={100}
               fill="#8884d8"
               dataKey="value"
             >

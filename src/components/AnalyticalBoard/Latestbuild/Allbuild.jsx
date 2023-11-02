@@ -1,6 +1,6 @@
 import { React, useEffect, useState } from "react";
 
-function Latestbuild() {
+function Allbuild() {
   let projectID = localStorage.getItem("ProjectID");
   const setBuildId = (id) => {
     //set build id
@@ -25,16 +25,8 @@ function Latestbuild() {
     getBuild();
   }, []);
 
-  let updatedArray = [];
-
-  Array.from(build, () => {
-    updatedArray = new Array(build[0], build[1], build[2], build[3], build[4]);
-  });
-
-  console.log(updatedArray);
-
   return (
-    <div>
+    <div className="mr-5">
       <h4 className="mb-3 mt-3">Build Executed</h4>
       <table class="table">
         <thead class="thead-dark">
@@ -47,7 +39,7 @@ function Latestbuild() {
             <th scope="col">Check Tests</th>
           </tr>
         </thead>
-        {updatedArray.reverse().map((element) => (
+        {build.reverse().map((element) => (
           <tbody>
             <tr>
               <td>{element.build_data.buildName}</td>
@@ -81,17 +73,9 @@ function Latestbuild() {
             </tr>
           </tbody>
         ))}
-        <tr>
-          <td colspan="5"></td>
-          <td>
-            <a href="/allbuilds" class="btn btn-secondary mt-auto">
-             See More...
-            </a>
-          </td>
-        </tr>
       </table>
     </div>
   );
 }
 
-export default Latestbuild;
+export default Allbuild;
