@@ -72,7 +72,7 @@ function Latestbuild() {
               <td>
                 <a
                   href="/buildreport"
-                  class="btn btn-primary mt-auto"
+                  class="btn btn-outline-primary mt-auto"
                   onClick={() => {
                     setBuildId(element.buildid);
                   }}
@@ -86,7 +86,7 @@ function Latestbuild() {
         <tr>
           <td colspan="5"></td>
           <td>
-            <a href="/allbuilds" class="btn btn-secondary mt-auto">
+            <a href="/allbuilds" class="btn btn-outline-secondary mt-auto">
              See More...
             </a>
           </td>

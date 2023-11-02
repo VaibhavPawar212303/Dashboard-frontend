@@ -1,16 +1,20 @@
 import { React, useState, useEffect } from "react";
+import Footer from "../Footer/Footer";
 
 function Projects() {
   let userID = localStorage.getItem("userID");
   const [project, setProject] = useState([]);
   const getProject = () => {
-    fetch(`https://dashboard-api-backhend-production.up.railway.app/api/project/getproject/${userID}`, {
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      method: "GET",
-    })
+    fetch(
+      `https://dashboard-api-backhend-production.up.railway.app/api/project/getproject/${userID}`,
+      {
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        method: "GET",
+      }
+    )
       .then((response) => response.json())
       .then((data) => setProject(data.projects));
   };
@@ -23,7 +27,7 @@ function Projects() {
   };
 
   return (
-    <div>
+    <div className="d-flex flex-column">
       <div className="d-flex justify-content-end">
         <a
           href="/createproject"
@@ -33,8 +37,7 @@ function Projects() {
           Create Project
         </a>
       </div>
-
-      <div class="row mb-5 w-25">
+      <div class="row mb-5 w-25 min-vh-100">
         {project.map((element) => (
           <div>
             <div class="card bg-light mb-3" key={element.ProjectID}>
@@ -52,6 +55,9 @@ function Projects() {
             </div>
           </div>
         ))}
+      </div>
+      <div className="d-flex flex-column">
+        <Footer />
       </div>
     </div>
   );
