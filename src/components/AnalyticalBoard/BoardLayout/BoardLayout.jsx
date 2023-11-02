@@ -8,7 +8,7 @@ import Latestbuild from "../Latestbuild/Latestbuild";
 
 function BoardLayout() {
   return (
-    <div className="bg-white">
+    <div>
       <div>
         <Buildcount />
       </div>
