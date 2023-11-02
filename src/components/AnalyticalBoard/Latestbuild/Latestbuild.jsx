@@ -25,9 +25,11 @@ function Latestbuild() {
     getBuild();
   }, []);
 
+  
+
   let updatedArray = [];
 
-  Array.from(build, () => {
+  Array.from(build.reverse(), () => {
     updatedArray = new Array(build[0], build[1], build[2], build[3], build[4]);
   });
 
@@ -47,7 +49,7 @@ function Latestbuild() {
             <th scope="col">Check Tests</th>
           </tr>
         </thead>
-        {updatedArray.reverse().map((element) => (
+        {updatedArray.map((element) => (
           <tbody>
             <tr>
               <td>{element.build_data.buildName}</td>
