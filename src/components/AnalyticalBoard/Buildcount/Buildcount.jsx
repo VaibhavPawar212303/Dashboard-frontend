@@ -25,7 +25,7 @@ function Buildcount() {
 
   return (
     <div>
-      <h4 className="mb-3 mt-3">Latest Build Executed</h4>
+      <h4 className="mb-3 mt-3">Latest Test Executed</h4>
       <div class="d-flex demo-card flex-row row ml-5">
         <div class="card border-info mx-sm-1 p-3 w-25 mt-3 col">
           <div class="text-info text-center mt-4">

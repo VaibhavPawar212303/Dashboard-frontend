@@ -21,19 +21,11 @@ function Sidebar() {
               class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
               id="menu"
             >
-              {/* <li>
-                <a href="/" class="nav-link px-0 align-middle">
-                  <i class="fs-4 bi-speedometer2 text-white"></i>{" "}
-                  <span class="ms-1 d-none d-sm-inline text-white">
-                    Dashboard
-                  </span>{" "}
-                </a>
-              </li> */}
               <li>
                 <a href="/project" class="nav-link px-0 align-middle">
                   <i class="fs-4 bi-grid text-white"></i>
                   <span class="ms-1 d-none d-sm-inline text-white">
-                    Project
+                    Home
                   </span>
                 </a>
               </li>
