@@ -26,7 +26,7 @@ function Piechart() {
     getBuild();
   }, []);
 
-  const testStatusArray = ["Test Passed", "Test Fail", "Test Skip"];
+  const testStatusArray = ["Passed", "Fail", " Skip"];
   data.push(
     { name: testStatusArray[0], value: build.totalPassAssertion },
     { name: testStatusArray[1], value: build.totalFailAssertion },
