@@ -47,7 +47,10 @@ function Login() {
     <>
       <div class="container-fluid w-full">
         <div class="row flex-nowrap">
-          <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-success bg-success">
+          <div
+            class="col-auto col-md-3 col-xl-2 px-sm-2 px-0"
+            style={{ backgroundColor: "#5dda83" }}
+          >
             <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
               <a
                 href="/"
@@ -64,7 +67,9 @@ function Login() {
             <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm p-3 mb-5 bg-body-tertiary">
               <div class="container d-flex justify-content-center">
                 <a class="navbar-brand" href="/">
-                  <h3> Testrig Automation Dashboard</h3>
+                  <h3 style={{ color: "#42bd8b" }}>
+                    TESTRIG Automation Dashboard
+                  </h3>
                 </a>
               </div>
             </nav>
@@ -72,7 +77,7 @@ function Login() {
               <div class="row gx-lg-5 align-items-center mb-5">
                 <div class="col-lg-6 mb-5 mb-lg-0">
                   <h1 class="my-5 display-5 fw-bold ls-tight">
-                    The Testrig Dashboard <br />
+                    The TESTRIG Dashboard <br />
                     <span>for analysis and render the report</span>
                   </h1>
                   <p class="mb-4 opacity-70">
@@ -116,6 +121,19 @@ function Login() {
                             value={password}
                             onChange={setpassword}
                           />
+                        </div>
+                        <div id="form-login-remember" class="input-group mb-1">
+                          <input
+                            id="remember"
+                            class="input-field"
+                            name="remember"
+                            type="checkbox"
+                            value="yes"
+                            alt="Remember me"
+                          />
+                          <label for="remember" className="ml-2 mb-1">
+                            Remember me
+                          </label>
                         </div>
                         <button
                           type="submit"

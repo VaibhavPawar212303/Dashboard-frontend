@@ -4,10 +4,9 @@ import Piechart from "../Piechart/Piechart";
 import Buildcount from "../Buildcount/Buildcount";
 import Footer from "../../Footer/Footer";
 import Latestbuild from "../Latestbuild/Latestbuild";
-import { useNavigate } from "react-router-dom";
+
 
 function BoardLayout() {
-  const navigate = useNavigate();
   return (
     <div>
       <div>

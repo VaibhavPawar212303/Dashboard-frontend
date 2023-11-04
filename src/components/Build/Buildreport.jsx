@@ -6,6 +6,7 @@ function Buildreport() {
   let BuildId = localStorage.getItem("BuildId");
   const [test, setTest] = useState([]);
   const [build, setBuild] = useState([]);
+  let projectName = localStorage.getItem("ProjectName");
   const getBuild = () => {
     fetch(
       `https://dashboard-api-backhend-production.up.railway.app/api/build/getbuild/${BuildId}`,
@@ -49,11 +50,11 @@ function Buildreport() {
   return (
     <>
       <div className="min-vh-100">
+        <h1 className="d-flex display-6">{projectName.toUpperCase()}</h1>
         <h1 class="display-6 d-flex justify-content-start">{test.buildName}</h1>
         <p class="d-flex justify-content-start mb-5">
           Test Executed On :{new Date(test.buildStartedAt).toLocaleDateString()}
         </p>
-
         <div class="row mb-5 mr-5">
           <div class="col-sm-3">
             <div class="card">
@@ -64,7 +65,7 @@ function Buildreport() {
             </div>
           </div>
           <div class="col-sm-3">
-            <div class="card bg-success">
+            <div class="card" style={{ backgroundColor: "#42bd8b" }}>
               <div class="card-body">
                 <h5 class="card-title">Test Passed</h5>
                 <p class="card-text">{test.totalPassAssertion}</p>
@@ -72,7 +73,7 @@ function Buildreport() {
             </div>
           </div>
           <div class="col-sm-3">
-            <div class="card bg-danger">
+            <div class="card" style={{ backgroundColor: "#ff6347" }}>
               <div class="card-body">
                 <h5 class="card-title">Test Failed</h5>
                 <p class="card-text">{test.totalFailAssertion}</p>
@@ -80,7 +81,7 @@ function Buildreport() {
             </div>
           </div>
           <div class="col-sm-3">
-            <div class="card bg-warning">
+            <div class="card" style={{ backgroundColor: "#FFBB28" }}>
               <div class="card-body">
                 <h5 class="card-title">Test Skipped</h5>
                 <p class="card-text">0</p>
@@ -121,15 +122,23 @@ function Buildreport() {
                         <small>{test.testname}</small>
                       </a>
                     </div>
-
                     <div className="d-flex  justify-content-end">
-                      <span class="badge badge-success">
+                      <span
+                        class="badge"
+                        style={{ backgroundColor: "#42bd8b" }}
+                      >
                         Assertions Pass :- {test.totalAssertionPass}
                       </span>
-                      <span class="badge badge-danger ml-3">
+                      <span
+                        class="badge ml-3"
+                        style={{ backgroundColor: "#ff6347" }}
+                      >
                         Assertions Fail :- {test.totalAssertionFail}
                       </span>
-                      <span class="badge badge-warning ml-3">
+                      <span
+                        class="badge ml-3"
+                        style={{ backgroundColor: "#FFBB28" }}
+                      >
                         Test Status:- {testStatus(test.testStatus)}
                       </span>
                     </div>
