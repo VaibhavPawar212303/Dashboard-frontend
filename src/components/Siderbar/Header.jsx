@@ -16,32 +16,10 @@ function Header() {
     return (
       <div className="mb-5">
         <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm mb-5 bg-body-tertiary">
-          <div className="px-5" style={{ display: "none" }}>
-            <button
-              type="button"
-              class="btn btn-outline-success"
-              onClick={() => navigate(-1)}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                class="bi bi-arrow-left"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
-                ></path>
-              </svg>
-              Back
-            </button>
-          </div>
+          <div className="px-5"></div>
           <div class="container d-flex justify-content-center">
-            <a class="navbar-brand" href="/">
-              <h3 style={{ color: "#42bd8b" }}>
-                {" "}
+            <a class="navbar-brand ml-5" href="/">
+              <h3 className="ml-5" style={{ color: "#42bd8b" }}>
                 TESTRIG Automation Dashboard
               </h3>
             </a>
@@ -52,7 +30,7 @@ function Header() {
               id="pills-tab"
               role="tablist"
             >
-              <li class="nav-item px-3">
+              <li class="nav-item">
                 <button
                   type="button"
                   class="btn btn-outline-success"
@@ -61,19 +39,14 @@ function Header() {
                   Home
                 </button>
               </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link text-secondary"
-                  href="/login"
-                  id="pills-profile-tab"
-                  data-toggle="pill"
-                  role="tab"
-                  aria-controls="pills-profile"
-                  aria-selected="false"
+              <li class="nav-item px-3">
+                <button
+                  type="button"
+                  class="btn btn-outline-success"
                   onClick={() => LogoutUser()}
                 >
-                  logout
-                </a>
+                  Logout
+                </button>
               </li>
             </ul>
           </div>
@@ -82,7 +55,7 @@ function Header() {
     );
   } else {
     return (
-      <div className="mb-5">
+      <div className="">
         <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm mb-5 bg-body-tertiary">
           <div className="px-5">
             <button
@@ -90,33 +63,17 @@ function Header() {
               class="btn btn-outline-success"
               onClick={() => navigate(-1)}
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                class="bi bi-arrow-left"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
-                ></path>
-              </svg>
               Back
             </button>
           </div>
           <div class="container d-flex justify-content-center">
             <a class="navbar-brand" href="/">
-              <h3 style={{ color: "#42bd8b" }}>
-                {" "}
-                TESTRIG Automation Dashboard
-              </h3>
+              <h3 style={{ color: "#42bd8b" }}>TESTRIG Automation Dashboard</h3>
             </a>
           </div>
           <div className="d-flex justify-content-center w-25">
             <ul
-              class="nav nav-pills mb-3 d-flex flex-row"
+              class="nav nav-pills d-flex flex-row"
               id="pills-tab"
               role="tablist"
             >
@@ -129,19 +86,14 @@ function Header() {
                   Home
                 </button>
               </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link text-secondary"
-                  href="/login"
-                  id="pills-profile-tab"
-                  data-toggle="pill"
-                  role="tab"
-                  aria-controls="pills-profile"
-                  aria-selected="false"
+              <li class="nav-item px-3">
+                <button
+                  type="button"
+                  class="btn btn-outline-success"
                   onClick={() => LogoutUser()}
                 >
-                  logout
-                </a>
+                  Logout
+                </button>
               </li>
             </ul>
           </div>

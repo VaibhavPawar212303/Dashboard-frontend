@@ -9,7 +9,7 @@ function Footer() {
             class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1"
           ></a>
           <span class="mb-3 mb-md-0 text-muted">
-            © 2023 Testrig Technologies Pvt Ltd | All Rights Reserved
+            © 2023 Testrig Technologies Pvt Ltd
           </span>
         </div>
 
