@@ -53,19 +53,19 @@ function Allbuild() {
               </td>
               <td>{element.build_data.buildStatus.toUpperCase()}</td>
               <td>
-                <span class="badge badge-success">
+                <span class="badge" style={{backgroundColor:"#42bd8b"}}>
                   {element.build_data.totalPassAssertion}
                 </span>
               </td>
               <td>
-                <span class="badge badge-danger">
+                <span class="badge" style={{backgroundColor:"#ff6347"}}>
                   {element.build_data.totalFailAssertion}
                 </span>
               </td>
               <td>
                 <a
                   href="/buildreport"
-                  class="btn btn-primary mt-auto"
+                  class="btn btn-outline-success mt-auto"
                   onClick={() => {
                     setBuildId(element.buildid);
                   }}

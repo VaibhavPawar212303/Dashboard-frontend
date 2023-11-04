@@ -4,6 +4,7 @@ import Footer from "../Footer/Footer";
 function Projects() {
   let userID = localStorage.getItem("userID");
   const [project, setProject] = useState([]);
+
   const getProject = () => {
     fetch(
       `https://dashboard-api-backhend-production.up.railway.app/api/project/getproject/${userID}`,
@@ -22,8 +23,9 @@ function Projects() {
     getProject();
   }, []);
 
-  const setProjectId = (projectID) => {
+  const setProjectIdAndName = (projectID, projectName) => {
     localStorage.setItem("ProjectID", projectID);
+    localStorage.setItem("ProjectName", projectName);
   };
 
   return (
@@ -37,7 +39,7 @@ function Projects() {
           Create Project
         </a>
       </div>
-      <div class="row mb-5 w-25 min-vh-100">
+      <div class="row mb-5 w-25 vh-100">
         {project.map((element) => (
           <div>
             <div class="card bg-light mb-3" key={element.ProjectID}>
@@ -47,7 +49,12 @@ function Projects() {
                 <a
                   href="/board"
                   class="btn btn-primary mt-auto mt-3"
-                  onClick={() => setProjectId(element.project_id)}
+                  onClick={() =>
+                    setProjectIdAndName(
+                      element.project_id,
+                      element.project_name
+                    )
+                  }
                 >
                   Click
                 </a>
