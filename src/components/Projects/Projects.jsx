@@ -39,10 +39,10 @@ function Projects() {
           Create Project
         </a>
       </div>
-      <div class="row mb-5 w-25 vh-100">
+      <div class="d-flex flex-row mb-5 vh-100">
         {project.map((element) => (
-          <div>
-            <div class="card bg-light mb-3" key={element.ProjectID}>
+          <div className="w-25">
+            <div class="card bg-light mb-3 ml-3" key={element.ProjectID}>
               <h5 class="card-title mt-3">{element.project_name}</h5>
               <div class="card-body">
                 <div class="card-header mb-3">{element.project_desc}</div>
