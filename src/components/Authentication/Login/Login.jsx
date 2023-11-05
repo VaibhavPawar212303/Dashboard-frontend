@@ -48,8 +48,8 @@ function Login() {
       <div class="container-fluid w-full">
         <div class="row flex-nowrap">
           <div
-            class="col-auto col-md-3 col-xl-2 px-sm-2 px-0"
-            style={{ backgroundColor: "#5dda83" }}
+            class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-success"
+            // style={{ backgroundColor: "#5dda83" }}
           >
             <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
               <a
@@ -67,7 +67,7 @@ function Login() {
             <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm p-3 mb-5 bg-body-tertiary">
               <div class="container d-flex justify-content-center">
                 <a class="navbar-brand" href="/">
-                  <h3 style={{ color: "#42bd8b" }}>
+                  <h3 style={{ color: "green" }}>
                     TESTRIG Automation Dashboard
                   </h3>
                 </a>

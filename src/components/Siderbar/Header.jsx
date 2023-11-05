@@ -19,7 +19,7 @@ function Header() {
           <div className="px-5"></div>
           <div class="container d-flex justify-content-center">
             <a class="navbar-brand ml-5" href="/">
-              <h3 className="ml-5" style={{ color: "#42bd8b" }}>
+              <h3 className="ml-5" style={{ color: "green" }}>
                 TESTRIG Automation Dashboard
               </h3>
             </a>
@@ -68,7 +68,7 @@ function Header() {
           </div>
           <div class="container d-flex justify-content-center">
             <a class="navbar-brand" href="/">
-              <h3 style={{ color: "#42bd8b" }}>TESTRIG Automation Dashboard</h3>
+              <h3 style={{ color: "green" }}>TESTRIG Automation Dashboard</h3>
             </a>
           </div>
           <div className="d-flex justify-content-center w-25">
