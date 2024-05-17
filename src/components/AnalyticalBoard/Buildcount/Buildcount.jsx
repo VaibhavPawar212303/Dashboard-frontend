@@ -1,20 +1,18 @@
 import { React, useEffect, useState } from "react";
 import "../Buildcount/Buildcount.css";
+import { baseUrl } from "../../../utilities/config";
 
 function Buildcount() {
   let projectID = localStorage.getItem("ProjectID");
   let projectName = localStorage.getItem("ProjectName");
   const getBuild = () => {
-    fetch(
-      `https://dashboard-api-backhend-production.up.railway.app/api/build/getallbuild/${projectID}`,
-      {
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        method: "GET",
-      }
-    )
+    fetch(`${baseUrl}/api/build/getallbuild/${projectID}`, {
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      method: "GET",
+    })
       .then((response) => response.json())
       .then((data) => setTest(data.Builds[data.Builds.length - 1].build_data));
   };

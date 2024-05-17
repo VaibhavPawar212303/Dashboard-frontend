@@ -15,6 +15,7 @@ import CreateProject from "./components/Projects/CreateProject";
 import BoardLayout from "./components/AnalyticalBoard/BoardLayout/BoardLayout";
 import Buildreport from "./components/Build/Buildreport";
 import Allbuild from "./components/AnalyticalBoard/Latestbuild/Allbuild";
+import TestCases from "./components/TestCases/TestCases";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
           <Route path="/" element={<Projects />} />
           <Route path="/project" element={<Projects />} />
           <Route path="/createproject" element={<CreateProject />} />
+          <Route path="/testcases" element={<TestCases />} />
           <Route path="/board" element={<BoardLayout />} />
           <Route path="/buildreport" element={<Buildreport />} />
           <Route path="/allbuilds" element={<Allbuild />} />

@@ -1,0 +1,1 @@
+export const baseUrl = 'https://dashboard-api-backhend-production-f65b.up.railway.app'

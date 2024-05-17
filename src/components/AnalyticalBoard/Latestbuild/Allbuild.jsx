@@ -1,6 +1,7 @@
 import { React, useEffect, useState } from "react";
 import Footer from "../../Footer/Footer";
 import { useNavigate } from "react-router-dom";
+import { baseUrl } from "../../../utilities/config";
 
 function Allbuild() {
   const navigate = useNavigate();
@@ -11,16 +12,13 @@ function Allbuild() {
   };
   const [build, setBuild] = useState([]);
   const getBuild = () => {
-    fetch(
-      `https://dashboard-api-backhend-production.up.railway.app/api/build/getallbuild/${projectID}`,
-      {
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        method: "GET",
-      }
-    )
+    fetch(`${baseUrl}/api/build/getallbuild/${projectID}`, {
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      method: "GET",
+    })
       .then((response) => response.json())
       .then((data) => setBuild(data.Builds));
   };
@@ -53,12 +51,12 @@ function Allbuild() {
               </td>
               <td>{element.build_data.buildStatus.toUpperCase()}</td>
               <td>
-                <span class="badge" style={{backgroundColor:"#42bd8b"}}>
+                <span class="badge" style={{ backgroundColor: "#42bd8b" }}>
                   {element.build_data.totalPassAssertion}
                 </span>
               </td>
               <td>
-                <span class="badge" style={{backgroundColor:"#ff6347"}}>
+                <span class="badge" style={{ backgroundColor: "#ff6347" }}>
                   {element.build_data.totalFailAssertion}
                 </span>
               </td>

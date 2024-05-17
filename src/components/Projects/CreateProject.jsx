@@ -1,25 +1,32 @@
 import { React, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { baseUrl } from "../utilities/config";
+
 function CreateProject() {
+
   const navigate = useNavigate();
   const userID = localStorage.getItem("userID");
+  const projectID = Math.random().toString(36).substring(2,7);
+
   //pass data to db
   const passDataToDb = (event) => {
     event.preventDefault();
     setprojectname(projectname);
     setprojectdesc(projectdesc);
+    setprojecttype(projecttype);
 
     axios({
       method: "post",
-      url: "https://dappled-blog-api.onrender.com/api/project/createproject",
+      url: `${baseUrl}/api/project/createproject`,
       data: {
-        userID: `${userID}`,
-        projectName: projectname,
-        projectDesc: projectdesc,
+        user_id: `${userID}`,
+        Project_ID:`${projectID}`,
+        Project_Name: projectname,
+        Project_Desc: projectdesc,
+        Project_Type: projecttype,
       },
     }).then(function (res) {
-      window.stop();
       window.stop();
       setMessage(JSON.stringify(res.data.message));
       if (res.data.message === "Project Created Successfully") {
@@ -32,6 +39,8 @@ function CreateProject() {
 
   const [projectname, setprojectname] = useState("");
   const [projectdesc, setprojectdesc] = useState("");
+  const [projecttype, setprojecttype] = useState("");
+
   const [message, setMessage] = useState("");
 
   const setProjectName = (e) => {
@@ -39,6 +48,9 @@ function CreateProject() {
   };
   const setProjectDesc = (e) => {
     setprojectdesc(e.target.value);
+  };
+  const setProjectType = (e) => {
+    setprojecttype(e.target.value);
   };
 
   return (
@@ -68,6 +80,17 @@ function CreateProject() {
                   placeholder="Project Describtion"
                   value={projectdesc}
                   onChange={setProjectDesc}
+                />
+              </div>
+              <div class="form-group"></div>
+              <div class="form-group">
+                <label>Project Type</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Project Type"
+                  value={projecttype}
+                  onChange={setProjectType}
                 />
               </div>
               <div class="form-group"></div>

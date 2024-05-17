@@ -1,4 +1,5 @@
 import { React, useEffect, useState } from "react";
+import { baseUrl } from "../../../utilities/config";
 
 function Latestbuild() {
   let projectID = localStorage.getItem("ProjectID");
@@ -8,24 +9,19 @@ function Latestbuild() {
   };
   const [build, setBuild] = useState([]);
   const getBuild = () => {
-    fetch(
-      `https://dashboard-api-backhend-production.up.railway.app/api/build/getallbuild/${projectID}`,
-      {
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        method: "GET",
-      }
-    )
+    fetch(`${baseUrl}/api/build/getallbuild/${projectID}`, {
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      method: "GET",
+    })
       .then((response) => response.json())
       .then((data) => setBuild(data.Builds));
   };
   useEffect(() => {
     getBuild();
   }, []);
-
-  
 
   let updatedArray = [];
 
@@ -60,12 +56,12 @@ function Latestbuild() {
               </td>
               <td>{element.build_data.buildStatus.toUpperCase()}</td>
               <td>
-                <span class="badge" style={{backgroundColor:"#42bd8b"}}>
+                <span class="badge" style={{ backgroundColor: "#42bd8b" }}>
                   {element.build_data.totalPassAssertion}
                 </span>
               </td>
               <td>
-                <span class="badge" style={{backgroundColor:"#ff6347"}}>
+                <span class="badge" style={{ backgroundColor: "#ff6347" }}>
                   {element.build_data.totalFailAssertion}
                 </span>
               </td>
@@ -87,7 +83,7 @@ function Latestbuild() {
           <td colspan="5"></td>
           <td>
             <a href="/allbuilds" class="btn btn-outline-success mt-auto">
-             See More...
+              See More...
             </a>
           </td>
         </tr>

@@ -1,11 +1,14 @@
 import { React, useState, useEffect } from "react";
 import "../Build/Build.css";
+import { baseUrl } from "../utilities/config";
+
+
 function Build() {
   let projctID = localStorage.getItem("ProjectID");
   const [build, setBuild] = useState([]);
   let builds = [];
   const getBuild = () => {
-    fetch(`https://dashboard-api-backhend-production.up.railway.app/api/build/getbuild/${projctID}`, {
+    fetch(`${baseUrl}/api/build/getbuild/${projctID}`, {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",

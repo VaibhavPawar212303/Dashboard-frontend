@@ -24,8 +24,14 @@ function Sidebar() {
               <li>
                 <a href="/project" class="nav-link px-0 align-middle">
                   <i class="fs-4 bi-grid text-white"></i>
+                  <span class="ms-1 d-none d-sm-inline text-white">Home</span>
+                </a>
+              </li>
+              <li>
+                <a href="/testcases" class="nav-link px-0 align-middle">
+                  <i class="bi-file-earmark-check text-white fs-4"></i>
                   <span class="ms-1 d-none d-sm-inline text-white">
-                    Home
+                    Test Cases
                   </span>
                 </a>
               </li>

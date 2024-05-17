@@ -1,5 +1,6 @@
 import { React, useState, useEffect } from "react";
 import Footer from "../Footer/Footer";
+import { baseUrl } from "../utilities/config";
 
 function Projects() {
   let userID = localStorage.getItem("userID");
@@ -7,7 +8,7 @@ function Projects() {
 
   const getProject = () => {
     fetch(
-      `https://dashboard-api-backhend-production.up.railway.app/api/project/getproject/${userID}`,
+      `${baseUrl}/api/project/getproject/${userID}`,
       {
         headers: {
           Accept: "application/json",
@@ -36,7 +37,7 @@ function Projects() {
         <div className="d-flex justify-content-end">
           <a
             href="/createproject"
-            class="btn btn-outline-success my-2 my-sm-0 mr-3"
+            class="btn btn-outline-success my-2 my-sm-0 mr-4"
             type="submit"
           >
             Create Project

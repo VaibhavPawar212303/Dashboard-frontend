@@ -10,6 +10,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
+import { baseUrl } from "../../../utilities/config";
 
 function Bars() {
   let projectID = localStorage.getItem("ProjectID");
@@ -17,16 +18,13 @@ function Bars() {
   const data = [];
 
   const getBuild = () => {
-    fetch(
-      `https://dashboard-api-backhend-production.up.railway.app/api/build/getallbuild/${projectID}`,
-      {
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        method: "GET",
-      }
-    )
+    fetch(`${baseUrl}/api/build/getallbuild/${projectID}`, {
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      method: "GET",
+    })
       .then((response) => response.json())
       .then((data) => setBuild(data.Builds));
   };

@@ -4,6 +4,8 @@ import Navbar from "../../Navbar/Navbar";
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { baseUrl } from "../../utilities/config";
+
 
 function Register() {
   const navigate = useNavigate();
@@ -17,7 +19,7 @@ function Register() {
     setphoneNo(phoneNo);
     axios({
       method: "post",
-      url: "https://dappled-blog-api.onrender.com/api/user/createUser",
+      url: `${baseUrl}/api/user/createUser`,
       data: {
         userName: username,
         EmailId: email,

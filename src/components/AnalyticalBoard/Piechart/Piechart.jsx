@@ -1,6 +1,7 @@
 import { React, useState, useEffect } from "react";
 import "../Bars/Bars.css";
 import { PieChart, Pie, ResponsiveContainer, Cell, Legend } from "recharts";
+import { baseUrl } from "../../utilities/config";
 
 function Piechart() {
   const data = [];
@@ -9,7 +10,7 @@ function Piechart() {
 
   const getBuild = () => {
     fetch(
-      `https://dashboard-api-backhend-production.up.railway.app/api/build/getallbuild/${projectID}`,
+      `${baseUrl}/api/build/getallbuild/${projectID}`,
       {
         headers: {
           Accept: "application/json",

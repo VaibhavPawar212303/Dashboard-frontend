@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import logo from "../../images/Testrig-logo-white.svg";
 import Footer from "../../Footer/Footer";
+import { baseUrl } from "../../utilities/config";
 
 function Login() {
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ function Login() {
     setPassword(password);
     axios({
       method: "post",
-      url: "https://dashboard-api-backhend-production.up.railway.app/api/user/loginUser",
+      url: `${baseUrl}/api/user/loginUser`,
       data: {
         EmailId: email,
         Password: password,

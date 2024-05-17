@@ -1,6 +1,7 @@
 import { React, useState, useEffect } from "react";
 import Footer from "../Footer/Footer";
 import { useNavigate } from "react-router-dom";
+import { baseUrl } from "../utilities/config";
 function Buildreport() {
   const navigate = useNavigate();
   let BuildId = localStorage.getItem("BuildId");
@@ -8,29 +9,23 @@ function Buildreport() {
   const [build, setBuild] = useState([]);
   let projectName = localStorage.getItem("ProjectName");
   const getBuild = () => {
-    fetch(
-      `https://dashboard-api-backhend-production.up.railway.app/api/build/getbuild/${BuildId}`,
-      {
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        method: "GET",
-      }
-    )
+    fetch(`${baseUrl}/api/build/getbuild/${BuildId}`, {
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      method: "GET",
+    })
       .then((response) => response.json())
       .then((data) => setTest(data.Builds[0].build_data));
 
-    fetch(
-      `https://dashboard-api-backhend-production.up.railway.app/api/build/getbuild/${BuildId}`,
-      {
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        method: "GET",
-      }
-    )
+    fetch(`${baseUrl}/api/build/getbuild/${BuildId}`, {
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      method: "GET",
+    })
       .then((response) => response.json())
       .then((data) => setBuild(data.Builds[0].build_data.tests));
   };
