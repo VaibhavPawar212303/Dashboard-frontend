@@ -1,8 +1,7 @@
 import { React, useEffect, useState } from "react";
 import Footer from "../../Footer/Footer";
 import { useNavigate } from "react-router-dom";
-import { baseUrl } from "../../../utilities/config";
-
+import { baseUrl } from "../../utilities/config";
 function Allbuild() {
   const navigate = useNavigate();
   let projectID = localStorage.getItem("ProjectID");

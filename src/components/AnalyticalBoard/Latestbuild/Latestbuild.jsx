@@ -1,5 +1,5 @@
 import { React, useEffect, useState } from "react";
-import { baseUrl } from "../../../utilities/config";
+import { baseUrl } from "../../utilities/config";
 
 function Latestbuild() {
   let projectID = localStorage.getItem("ProjectID");
