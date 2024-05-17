@@ -1,6 +1,6 @@
 import { React, useEffect, useState } from "react";
 import "../Buildcount/Buildcount.css";
-import { baseUrl } from "../../../utilities/config";
+import { baseUrl } from "../../utilities/config";
 
 function Buildcount() {
   let projectID = localStorage.getItem("ProjectID");

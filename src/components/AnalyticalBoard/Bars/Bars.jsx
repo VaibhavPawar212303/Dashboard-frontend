@@ -10,7 +10,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
-import { baseUrl } from "../../../utilities/config";
+import { baseUrl } from "../../utilities/config";
 
 function Bars() {
   let projectID = localStorage.getItem("ProjectID");
