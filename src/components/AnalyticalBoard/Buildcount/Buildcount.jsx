@@ -1,10 +1,13 @@
 import { React, useEffect, useState } from "react";
 import "../Buildcount/Buildcount.css";
 import { baseUrl } from "../../utilities/config";
+import Alert from "react-bootstrap/Alert";
+import DeleteAlertPopup from "../../Alerts/DeleteAlertPopup";
 
 function Buildcount() {
   let projectID = localStorage.getItem("ProjectID");
   let projectName = localStorage.getItem("ProjectName");
+
   const getBuild = () => {
     fetch(`${baseUrl}/api/build/getallbuild/${projectID}`, {
       headers: {
@@ -16,6 +19,12 @@ function Buildcount() {
       .then((response) => response.json())
       .then((data) => setTest(data.Builds[data.Builds.length - 1].build_data));
   };
+
+  const sendAlert = (event) => {
+    event.preventDefault();
+    <Alert variant="success">Data is saved sucessfully</Alert>;
+  };
+
   const [test, setTest] = useState([]);
 
   useEffect(() => {
@@ -24,7 +33,12 @@ function Buildcount() {
 
   return (
     <div>
-      <h1 className="d-flex display-6">{projectName.toUpperCase()}</h1>
+      <div>
+        <h1 className="d-flex display-6 ml-3">
+          <div class="ml-2 mt-1">{projectName.toUpperCase()}</div>
+          <DeleteAlertPopup />
+        </h1>
+      </div>
       <div>
         <h4 className="mb-3 mt-3">Latest Test Executed</h4>
         <div class="d-flex demo-card flex-row row ml-5">

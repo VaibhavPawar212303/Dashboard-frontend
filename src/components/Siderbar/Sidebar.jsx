@@ -3,6 +3,7 @@ import "../Siderbar/Sidebar.css";
 import logo from "../images/Testrig-logo-white.svg";
 import Header from "./Header";
 import { Outlet } from "react-router-dom";
+
 function Sidebar() {
   return (
     <div class="container-fluid w-full">

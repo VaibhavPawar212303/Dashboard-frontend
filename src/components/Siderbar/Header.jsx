@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 function Header() {
   const navigate = useNavigate();
   const location = useLocation();
-  console.log(location.pathname);
+  
 
   const LogoutUser = (req, res) => {
     localStorage.removeItem("token");
