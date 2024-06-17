@@ -1,50 +1,64 @@
-import { Route, Routes } from "react-router-dom";
-import "./App.css";
-import Home from "./components/Home/Home";
-// import Editor from "./components/Editor/Editor";
-import Singlepost from "./components/Blogs/Singlepost/Singlepost";
-import Joditeditor from "./components/Joditeditor/Joditeditor";
-import Register from "./components/Authentication/Register/Register";
-import Login from "./components/Authentication/Login/Login";
-import Layout from "./components/Layout/Layout";
-import PrivateRoute from "./components/Protected/PrivateRoute";
-import Latestblog from "./components/Blogs/Latestblog/Latestblog";
-import Projects from "./components/Projects/Projects";
-import CreateProject from "./components/Projects/CreateProject";
-//import Build from "./components/Build/Build";
-import BoardLayout from "./components/AnalyticalBoard/BoardLayout/BoardLayout";
-import Buildreport from "./components/Build/Buildreport";
-import Allbuild from "./components/AnalyticalBoard/Latestbuild/Allbuild";
-import TestCases from "./components/TestCases/TestCases";
+import LoginPage from "./Pages/LoginPage";
+
+import SignupPage from "./Pages/SignupPage";
+import Dashboard from "./Pages/Dashboard"
+
+import {
+  createBrowserRouter,
+  RouterProvider,
+
+} from "react-router-dom";
+import Projects from "./Pages/Projects";
+import Testcases from "./Pages/Testcases";
+import Performance from "./Pages/Performance";
+import Integration from "./Pages/Integration";
+import Slidebar from "./Pages/Slidebar";
+
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: (
+      <LoginPage></LoginPage>
+    ),
+  },
+  {
+    path: "/login",
+    element: (
+      <LoginPage></LoginPage>
+    ),
+  },
+  {
+    path: "/sign-up",
+    element: <SignupPage></SignupPage>,
+  },
+  {
+    path: "/dashboard",
+    element: <Dashboard></Dashboard>
+  },
+  {
+    path: "/projects",
+    element: <Projects></Projects>
+  },
+  {
+    path: "/testcase",
+    element: <Testcases></Testcases>
+  },
+  {
+    path: "/performance",
+    element: <Performance></Performance>
+  },
+  {
+    path: "/integration",
+    element: <Integration></Integration>
+  }
+]);
 
 function App() {
   return (
-    <div className="App">
-      <Routes>
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
-        {/* <Route path="/home" element={<Home />} /> */}
-        {/* <Route path="/singlepost" element={<Singlepost />} /> */}
-        <Route
-          path="/"
-          element={
-            <PrivateRoute>
-              <Layout />
-            </PrivateRoute>
-          }
-        >
-          {/* <Route path="/editor" element={<Joditeditor />} /> */}
-          {/* <Route path="/latestblog" element={<Latestblog />} /> */}
-          <Route path="/" element={<Projects />} />
-          <Route path="/project" element={<Projects />} />
-          <Route path="/createproject" element={<CreateProject />} />
-          <Route path="/testcases" element={<TestCases />} />
-          <Route path="/board" element={<BoardLayout />} />
-          <Route path="/buildreport" element={<Buildreport />} />
-          <Route path="/allbuilds" element={<Allbuild />} />
-        </Route>
-      </Routes>
-    </div>
+
+    <RouterProvider router={router} />
+    
   );
 }
 

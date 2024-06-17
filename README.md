@@ -1,64 +1,70 @@
-# React-Blog-Application
-This is the project for creating the simple react blog application.
+# Getting Started with Create React App
 
-# Prerequisite for this project
-1.vscode(creating and debugging a code)
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-2.nodejs(used for the pakage manager)
+## Available Scripts
 
-3.git bash(for push and clone a code)
+In the project directory, you can run:
 
-# start the project
-creating the project with the command which is called as
+### `npm start`
 
-## npx create-react-app --your project name--
-Above is the simple command to create the react application. By putting the name of your project at the end of the command. After creating the project we can easily run it by the command.
-   ## npm start
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-But remember we have to navigate the folder of your project.
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-## created new folder called as the components
+### `npm test`
 
-Within this components folder we will include all of our components which is requireed within this project.
-we can consider components as the building block/simple one piece of the puzzle  by connecting all this pieces we have to complete the puzzle.
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-#plugins used
+### `npm run build`
 
-1.react-responsive-carousel 
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-For adding the plugin in your react application we need the basic command
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-## npm install react-responsive-carousel --save  
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-# React Router
+### `npm run eject`
 
-The above is the main pakage for the routing the path in the react,While working with the different path in the react.It is as similar to the directing the user from one page to the another.In this application we have created the first route which is hide from the visiter and only preferred user can access or edit the content. To add this pakage in the react we use the below command.
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-## npm install -D react-router-dom
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-# state in the React 
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-Working with the react state is hard and it is the main core part of the react.To switch between the login and the signup we have used the useState and change the account after click. For diffrentiate the client and the server side we have created the new folder called server and defining the schema and the API in this folder.
-In this project we have also used the ES6 version for that we have to put or the type module in the pakage.json file. we always used two type of the dependencies or the pakages one which is run on the project env where as other one is on the dev enviornment.
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
---dev-save is for the development only. 
+## Learn More
 
-## Package needed for creating the server 
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-1. express command for it 
-2. nodemon command for restart the server after changes save.
-## npm install experss
-## npm install --save-dev nodemon
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-# connect with the mongodb 
-   
-   Within this application we have tried to connect with the mongodb by mongoose.
-   need to install the mongoose pakage by.
-    
-     npm install mongoose.
-    
-  We are easily created and connected with the database.We have also used the ## dotenv for hide the credentials.
-    
-  Creating the api 
-   API url is always same just the end point will change.
-   
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
