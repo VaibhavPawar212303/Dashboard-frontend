@@ -3,7 +3,7 @@ import { TestItem } from '@/types';
 
 interface SidebarProps {
   tests: TestItem[];
-  activeTestId: number;
+  activeTestId: string;
   onSelectTest: (test: TestItem) => void;
 }
 
