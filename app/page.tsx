@@ -32,7 +32,7 @@ export default function DashboardPage() {
     if (eventSourceRef.current) eventSourceRef.current.close();
     
     // REPLACE WITH YOUR RENDER URL
-    const BACKEND_URL = "https://automation-backend-9jov.onrender.com "; 
+    const BACKEND_URL = "https://automation-backend-9jov.onrender.com"; 
     const url = `${BACKEND_URL}/stream-task?task=${encodeURIComponent(task)}&model=${provider}`;
 
     const es = new EventSource(url);
