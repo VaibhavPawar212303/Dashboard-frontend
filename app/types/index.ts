@@ -1,5 +1,5 @@
 export interface TestItem {
-  id: string; // Changed to string for Session IDs
+  id: string;
   name: string;
   status: 'passed' | 'failed' | 'running' | 'idle';
   duration: string;
@@ -8,11 +8,10 @@ export interface TestItem {
 
 export interface CommandLog {
   id: number;
-  action: string; // e.g., "Click Element"
-  type: string;   // e.g., "selector"
-  value: string;  // e.g., "#submit-btn"
+  action: string;
+  type: string;
+  value: string;
   duration: string;
   time: string;
   status: 'success' | 'error' | 'pending';
-  rawMessage?: string; // To store the original message if needed
 }
